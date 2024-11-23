@@ -1,4 +1,4 @@
-## Lab 02
+## Lab 03
 
 The src code for AimsProject can be found in folder `src` 
 
