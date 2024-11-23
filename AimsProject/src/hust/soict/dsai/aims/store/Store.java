@@ -1,5 +1,8 @@
+package hust.soict.dsai.aims.store;
 import java.util.ArrayList;
 import java.util.List;
+
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 
 public class Store {
 	// List DVDs 
