@@ -1,0 +1,13 @@
+Nếu người dùng chọn "Cancel," hộp thoại sẽ hiển thị "You closed the dialog without choosing!" thay vì "You've chosen: NO" như khi chọn "NO."  
+Để tạo các tùy chọn riêng, ta sử dụng hộp thoại tùy chỉnh như sau:  
+Tạo mảng các lựa chọn: Khai báo một mảng chứa các lựa chọn "I agree" và "I don't agree":  
+
+    String[] options = {"I agree", "I don't agree"};
+ 
+Hiển thị hộp thoại: Sử dụng `JOptionPane.showOptionDialog` để hiển thị hộp thoại với thông điệp yêu cầu và các tùy chọn:  
+
+    int selectedOption = JOptionPane.showOptionDialog(null, "Do you want to upgrade to first class?", "Choose an option", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+ 
+Hiển thị lựa chọn của người dùng: Sử dụng `JOptionPane.showMessageDialog` để hiển thị thông báo tương ứng với lựa chọn của người dùng. Nếu người dùng không chọn gì (đóng hộp thoại), thông báo sẽ là "You closed the dialog without choosing!":
+
+    displayUserChoice(selectedOption, options);
