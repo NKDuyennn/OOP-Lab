@@ -19,6 +19,8 @@ public class Aims {
 				"Animation", 18.99f);
 		anOrder.addDigitalVideoDisc(dvd3);
 		
+//		anOrder.addDigitalVideoDisc(dvd1, dvd2);
+		
 		// print total cost of the items in the cart
 		System.out.println("Total Cost is: ");
 		System.out.println(anOrder.totalCost());
