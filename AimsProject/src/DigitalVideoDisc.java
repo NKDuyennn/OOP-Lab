@@ -20,6 +20,12 @@ public class DigitalVideoDisc {
 	public float getCost() {
 		return cost;
 	}
+	
+	public void setTitle(String title)
+	{
+		this.title = title;
+	}
+	
 	public DigitalVideoDisc(String title) {
 		super();
 		this.title = title;
