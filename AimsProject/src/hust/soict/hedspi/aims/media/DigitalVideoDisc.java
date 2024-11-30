@@ -2,11 +2,6 @@ package hust.soict.hedspi.aims.media;
 
 public class DigitalVideoDisc extends Disc implements Playable {
 	
-	public boolean isMatch(String keyword)
-	{
-		return this.getTitle().toLowerCase().contains(keyword.toLowerCase());
-	}
-	
 	public DigitalVideoDisc(String title) {
 		super(title);
 	}
