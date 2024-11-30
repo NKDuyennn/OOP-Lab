@@ -42,6 +42,18 @@ public class MediaCompareTest {
         
         Iterator<Media> iterator = mediae.iterator();
         
+     // Sort using override compareto method
+        System.out.println();
+        System.out.println("*******SORT USING OVERRIDE compareTo method*******");
+        Collections.sort(mediae);
+        
+        while (iterator.hasNext()) {
+			System.out.println(((Media)iterator.next()).toString());
+		}
+        
+        System.out.println("**************************************************");
+        
+        
         // Sort by title using comparator
         System.out.println();
         System.out.println("**********SORT BY TITLE USING COMPARATOR**********");
