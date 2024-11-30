@@ -1,16 +1,6 @@
 package hust.soict.hedspi.aims.media;
 
-public class DigitalVideoDisc extends Media {
-	
-	private String director;
-	private int length;
-	
-	public String getDirector() {
-		return director;
-	}
-	public int getLength() {
-		return length;
-	}
+public class DigitalVideoDisc extends Disc {
 	
 	public boolean isMatch(String keyword)
 	{
@@ -24,13 +14,10 @@ public class DigitalVideoDisc extends Media {
 		super(title, category, cost);
 	}
 	public DigitalVideoDisc(String title, String category, String director, float cost) {
-		super(title, category, cost);
-		this.director = director;
+		super(title, category, director, cost);
 	}
 	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
-		super(title, category, cost);
-		this.director = director;
-		this.length = length;
+		super(title, category, director, length, cost);
 	}
 	
 	@Override
@@ -38,8 +25,8 @@ public class DigitalVideoDisc extends Media {
 	{
 		return "DVD: " + this.getTitle() +
 				" - Category: " + this.getCategory() +
-				" - Director: " + this.director +
-				" - DVD length: " + this.length +
+				" - Director: " + this.getDirector() +
+				" - DVD length: " + this.getLength() +
 				" - Cost: " + this.getCost() + "$";
 	}
 	
