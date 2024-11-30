@@ -40,13 +40,12 @@ public class MediaCompareTest {
         mediae.add(dvd2);     
         mediae.add(dvd3);    
         
-        Iterator<Media> iterator = mediae.iterator();
         
-     // Sort using override compareto method
+        // Sort using override compareto method
         System.out.println();
         System.out.println("*******SORT USING OVERRIDE compareTo method*******");
         Collections.sort(mediae);
-        
+        Iterator<Media> iterator = mediae.iterator();
         while (iterator.hasNext()) {
 			System.out.println(((Media)iterator.next()).toString());
 		}
