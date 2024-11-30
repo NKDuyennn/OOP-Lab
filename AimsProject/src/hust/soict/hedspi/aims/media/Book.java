@@ -2,78 +2,28 @@ package hust.soict.hedspi.aims.media;
 
 import java.util.*;
 
-public class Book {
-
-	private int id;
-	private String title;
-	private String category;
-	private float cost;
+public class Book extends Media {
+	
 	private List<String> authors = new ArrayList<String>();
-	
-	
-	public int getId() {
-		return id;
-	}
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
-	public String getTitle() {
-		return title;
-	}
-
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-
-	public String getCategory() {
-		return category;
-	}
-
-
-	public void setCategory(String category) {
-		this.category = category;
-	}
-
-
-	public float getCost() {
-		return cost;
-	}
-
-
-	public void setCost(float cost) {
-		this.cost = cost;
-	}
-
 
 	public List<String> getAuthors() {
 		return authors;
 	}
 
-
 	public void setAuthors(List<String> authors) {
 		this.authors = authors;
 	}
 
-
 	public Book(String title) {
-		this.title = title;
+		super(title);
 	}
 	
 	public Book(String title, String category) {
-		this.title = title;
-		this.category = category;
+		super(title, category);
 	}
 	
 	public Book(String title, String category, float cost) {
-		this.title = title;
-		this.category = category;
-		this.cost = cost;
+		super(title, category, cost);
 	}
 	
 	public void addAuthor(String authorName) {
