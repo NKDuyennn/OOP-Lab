@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="hust.soict.hedspi.aims.screen.controller.CartScreenController">
+<BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1">
    <top>
       <VBox prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -84,7 +84,7 @@
             </HBox>
             <TableView fx:id="tblMedia">
               <columns>
-                <TableColumn fx:id="colMediaTable" prefWidth="75.0" text="Title" />
+                <TableColumn fx:id="colMediaTitle" prefWidth="75.0" text="Title" />
                 <TableColumn fx:id="colMediaCategory" prefWidth="75.0" text="Category" />
                   <TableColumn fx:id="colMediaCost" prefWidth="75.0" text="Cost" />
               </columns>
@@ -94,11 +94,7 @@
             </TableView>
             <ButtonBar prefHeight="40.0" prefWidth="200.0">
               <buttons>
-                <Button fx:id="btnPlay" mnemonicParsing="false" text="Play">
-                     <padding>
-                        <Insets right="10.0" />
-                     </padding>
-                  </Button>
+                <Button fx:id="btnPlay" mnemonicParsing="false" text="Play" />
                   <Button fx:id="btnRemove" mnemonicParsing="false" text="Remove" />
               </buttons>
             </ButtonBar>
