@@ -51,6 +51,7 @@ public class MediaStore extends JPanel {
 					dialog.setVisible(true);
 				}
 			});
+			container.add(playButton);
 		}
 		
 		this.add(Box.createVerticalGlue());
