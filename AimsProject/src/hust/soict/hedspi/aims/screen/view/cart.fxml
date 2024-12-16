@@ -62,12 +62,12 @@
                </VBox.margin>
                <children>
                   <Label text="Filter:" />
-                  <TextField>
+                  <TextField fx:id="tfFilter">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
                   </TextField>
-                  <RadioButton mnemonicParsing="false" selected="true" text="By ID">
+                  <RadioButton fx:id="radioBtnFilterID" mnemonicParsing="false" selected="true" text="By ID">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
@@ -75,7 +75,7 @@
                         <ToggleGroup fx:id="filterCategory" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="By Title" toggleGroup="$filterCategory">
+                  <RadioButton fx:id="radioBtnFilterTitle" mnemonicParsing="false" text="By Title" toggleGroup="$filterCategory">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
@@ -94,12 +94,12 @@
             </TableView>
             <ButtonBar prefHeight="40.0" prefWidth="200.0">
               <buttons>
-                <Button mnemonicParsing="false" text="Play">
+                <Button fx:id="btnPlay" mnemonicParsing="false" text="Play">
                      <padding>
                         <Insets right="10.0" />
                      </padding>
                   </Button>
-                  <Button mnemonicParsing="false" text="Remove" />
+                  <Button fx:id="btnRemove" mnemonicParsing="false" text="Remove" />
               </buttons>
             </ButtonBar>
          </children>
@@ -124,7 +124,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </Label>
-                  <Label text="0 $" textFill="AQUA">
+                  <Label fx:id="costLabel" text="0 $" textFill="AQUA">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -134,7 +134,7 @@
                   </Label>
                </children>
             </HBox>
-            <Button mnemonicParsing="false" style="-fx-background-color: red;" text="Place Order" textFill="WHITE">
+            <Button fx:id="placeOrder" mnemonicParsing="false" style="-fx-background-color: red;" text="Place Order" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
