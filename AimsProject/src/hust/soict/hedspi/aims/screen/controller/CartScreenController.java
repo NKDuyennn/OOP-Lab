@@ -12,9 +12,57 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class CartScreenController {
+	private Cart cart;
+    
+    @FXML
+    private Button btnPlay;
 
-	public CartScreenController() {
-		// TODO Auto-generated constructor stub
+    @FXML
+    private Button btnRemove;
+
+    @FXML
+    private TableColumn<Media, Float> colMediaCost;
+
+    @FXML
+    private TableColumn<Media, String> colMediaTitle;
+
+    @FXML
+    private TableColumn<Media, String> colMediaCategory;
+
+    @FXML
+    private TableView<Media> tblMedia;
+
+    @FXML
+    private ToggleGroup filterCategory;
+
+    @FXML
+    private RadioButton radioBtnFilterId;
+
+    @FXML
+    private RadioButton radioBtnFilterTitle;
+    
+    @FXML
+    private Label costLabel;
+
+    @FXML
+    private TextField tfFilter;
+
+    @FXML
+    private Button placeOrder;
+
+	public CartScreenController(Cart cart) {
+		super();
+		this.cart = cart;
+	}
+	
+	@FXML private void initialize() {
+		colMediaTitle.setCellValueFactory(
+				new PropertyValueFactory<Media, String>("title"));
+		colMediaCategory.setCellValueFactory(
+				new PropertyValueFactory<Media, String>("category"));
+		colMediaCost.setCellValueFactory(
+				new PropertyValueFactory<Media, Float>("cost"));
+		tblMedia.setItems(this.cart.getItemsOrdered());
 	}
 
 }
