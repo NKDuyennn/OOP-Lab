@@ -23,6 +23,7 @@ public class MediaStore extends JPanel {
 		JPanel container = new JPanel();
 		container.setLayout(new FlowLayout(FlowLayout.CENTER));
 		
+		// Thêm tương tác cho nút Add to cart
 		JButton addToCartButton = new JButton("Add to cart");
 		addToCartButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -31,6 +32,7 @@ public class MediaStore extends JPanel {
 		});
 		container.add(addToCartButton);
 		
+		// Thêm tương tác cho nút Play
 		if(media instanceof Playable) {
 			JButton playButton = new JButton("Play");
 			playButton.addActionListener(new ActionListener() {
