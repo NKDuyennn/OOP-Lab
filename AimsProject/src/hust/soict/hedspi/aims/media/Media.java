@@ -80,10 +80,12 @@ public abstract class Media implements Comparable<Media>{
     	if (obj == this) {
     		return true;
     	}
-    	if (!(obj instanceof Media)) {
-    		return false;
-    	}
-    	return ((Media)obj).getTitle() == this.getTitle();
+    	if (obj == null || !(obj instanceof Media)) {
+            return false;
+        }
+    	Media otherMedia = (Media) obj;
+        return this.getTitle() != null && this.getTitle().equals(otherMedia.getTitle());
+
     }
     
     @Override
