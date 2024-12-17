@@ -56,10 +56,30 @@ public class CartScreenController {
 	}
 	
 	@FXML
+	void placeOrderPressed(ActionEvent event) {
+		Alert alert = new Alert(Alert.AlertType.INFORMATION, cart.placeOrder());
+		alert.setTitle("Order created");
+		alert.setHeaderText(null);
+		alert.showAndWait();
+	}
+	
+	@FXML
+	void btnPlayPressed(ActionEvent event) {
+		Media media = tblMedia.getSelectionModel().getSelectedItem();
+		Alert alert = new Alert(Alert.AlertType.NONE, media.playGUI());
+		alert.setTitle("Playing");
+		alert.setHeaderText(null);
+		alert.getDialogPane().getButtonTypes().add(ButtonType.OK);
+		alert.showAndWait();
+	}
+	
+	@FXML
 	void btnRemovePressed(ActionEvent event) {
 		Media media = tblMedia.getSelectionModel().getSelectedItem();
 		cart.removeMedia(media);
+		costLabel.setText(cart.totalCost() + " $");
 	}
+	
 	
 	@FXML 
 	private void initialize() {
@@ -67,6 +87,8 @@ public class CartScreenController {
 		colMediaCategory.setCellValueFactory(new PropertyValueFactory<Media, String>("category"));
 		colMediaCost.setCellValueFactory(new PropertyValueFactory<Media, Float>("cost"));
 		tblMedia.setItems(this.cart.getItemsOrdered());
+		
+		costLabel.setText(cart.totalCost() + "$");
 		
 		btnPlay.setVisible(false);
 		btnRemove.setVisible(false);
