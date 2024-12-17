@@ -55,6 +55,12 @@ public class CartScreenController {
 		this.cart = cart;
 	}
 	
+	@FXML
+	void btnRemovePressed(ActionEvent event) {
+		Media media = tblMedia.getSelectionModel().getSelectedItem();
+		cart.removeMedia(media);
+	}
+	
 	@FXML private void initialize() {
 		colMediaTitle.setCellValueFactory(new PropertyValueFactory<Media, String>("title"));
 		colMediaCategory.setCellValueFactory(new PropertyValueFactory<Media, String>("category"));
