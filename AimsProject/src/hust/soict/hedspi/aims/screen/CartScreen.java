@@ -70,7 +70,7 @@ public class CartScreen extends JFrame{
 		
 		this.setTitle("Cart");
 		this.setSize(1024, 768);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		Platform.runLater(new Runnable() {
 			@Override
