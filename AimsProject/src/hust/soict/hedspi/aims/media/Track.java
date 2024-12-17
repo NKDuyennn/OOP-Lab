@@ -1,5 +1,7 @@
 package hust.soict.hedspi.aims.media;
 
+import java.time.Duration;
+
 public class Track implements Playable {
 	
 	private String title;
@@ -22,6 +24,16 @@ public class Track implements Playable {
 		System.out.println("Playing track: " + this.getTitle());
 		System.out.println("Track length: " + this.getLength());
 	}
+	
+	public String formatDuration(int durationInSeconds) {
+        Duration duration = Duration.ofSeconds(durationInSeconds);
+        return String.format("%02d:%02d", duration.toMinutes(), duration.minusMinutes(duration.toMinutes()).getSeconds());
+    }
+	
+	public String playGUI() {
+        return "Playing track: " + this.getTitle() + "\n" + 
+                "Track length: " + formatDuration(this.getLength());
+    }
 	
 	@Override
 	public boolean equals(Object obj) {
