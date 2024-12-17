@@ -36,6 +36,9 @@ public class CartScreenController {
     private ToggleGroup filterCategory;
 
     @FXML
+    private TextField tfFilter;
+    
+    @FXML
     private RadioButton radioBtnFilterId;
 
     @FXML
@@ -43,9 +46,6 @@ public class CartScreenController {
     
     @FXML
     private Label costLabel;
-
-    @FXML
-    private TextField tfFilter;
 
     @FXML
     private Button placeOrder;
@@ -61,7 +61,8 @@ public class CartScreenController {
 		cart.removeMedia(media);
 	}
 	
-	@FXML private void initialize() {
+	@FXML 
+	private void initialize() {
 		colMediaTitle.setCellValueFactory(new PropertyValueFactory<Media, String>("title"));
 		colMediaCategory.setCellValueFactory(new PropertyValueFactory<Media, String>("category"));
 		colMediaCost.setCellValueFactory(new PropertyValueFactory<Media, Float>("cost"));
@@ -89,6 +90,34 @@ public class CartScreenController {
 						}
 					}
 				});
+		
+		tfFilter.textProperty().addListener(
+	            new ChangeListener<String>() {
+
+		            @Override
+		            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+		                showFilteredMedia(newValue);
+		            }
+	
+		            private void showFilteredMedia(String keyword) {
+		                FilteredList<Media> filteredList = new FilteredList<>(cart.getItemsOrdered());
+	
+		                if (!keyword.isEmpty() && radioBtnFilterId.isSelected()) {
+		                    filteredList.setPredicate(media -> {
+		                        String idString = String.valueOf(media.getId());
+		                        return idString.equals(keyword);
+		                    });
+		                } else if (!keyword.isEmpty() &&  radioBtnFilterTitle.isSelected()) {
+		                    filteredList.setPredicate(media -> {
+		                        String title = media.getTitle().toLowerCase();
+		                        return title.contains(keyword.toLowerCase());
+		                    });
+		                } else {
+		                    filteredList.setPredicate(null);
+		                }
+		                tblMedia.setItems(filteredList);
+		            }
+		        });
 	}
 
 }

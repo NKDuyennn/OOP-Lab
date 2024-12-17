@@ -66,7 +66,7 @@
                         <Insets left="10.0" />
                      </HBox.margin>
                   </TextField>
-                  <RadioButton fx:id="radioBtnFilterID" mnemonicParsing="false" selected="true" text="By ID">
+                  <RadioButton fx:id="radioBtnFilterId" mnemonicParsing="false" selected="true" text="By ID">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
