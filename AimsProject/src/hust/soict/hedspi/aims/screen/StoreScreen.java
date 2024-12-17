@@ -3,12 +3,15 @@ package hust.soict.hedspi.aims.screen;
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
+import java.awt.event.*;
 
 import hust.soict.hedspi.aims.store.Store;
+import hust.soict.hedspi.aims.cart.Cart;
 import hust.soict.hedspi.aims.media.*;
 
 public class StoreScreen extends JFrame{
 	private static Store store = new Store();
+	private static Cart cart = new Cart();
 	
 	public static void initSetup() {
 		DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);     
@@ -108,14 +111,20 @@ public class StoreScreen extends JFrame{
 		title.setFont(new Font(title.getFont().getName(), Font.PLAIN, 50));
 		title.setForeground(Color.CYAN);
 		
-		JButton cart = new JButton("View cart");
-		cart.setPreferredSize(new Dimension(100, 50));
-		cart.setMaximumSize(new Dimension(100, 50));
+		JButton cartBtn = new JButton("View cart");
+        cartBtn.setPreferredSize(new Dimension(100, 50));
+        cartBtn.setMaximumSize(new Dimension(100, 50));
+        cartBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new CartScreen(cart);
+            }
+        });
 		
 		header.add(Box.createRigidArea(new Dimension(10, 10)));
 		header.add(title);
 		header.add(Box.createHorizontalGlue());
-		header.add(cart);
+		header.add(cartBtn);
 		header.add(Box.createRigidArea(new Dimension(10, 10)));
 		
 		return header;
@@ -128,7 +137,7 @@ public class StoreScreen extends JFrame{
 		
 		ArrayList<Media> mediaInStore = store.getItemsInStore();
 		for (int i=0; i<9; i++) {
-			MediaStore cell = new MediaStore(mediaInStore.get(i));
+			MediaStore cell = new MediaStore(mediaInStore.get(i), cart);
 			center.add(cell);
 		}
 		
