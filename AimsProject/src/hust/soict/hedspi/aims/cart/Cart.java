@@ -1,6 +1,9 @@
 package hust.soict.hedspi.aims.cart;
 
 import java.util.*;
+
+import javax.naming.LimitExceededException;
+
 import hust.soict.hedspi.aims.media.Media;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,9 +17,9 @@ public class Cart {
 	}
 	public int qtyOrdered = 0;
     
-	public String addMedia(Media media) {
+	public String addMedia(Media media) throws LimitExceededException {
 		if (itemsOrdered.size() >= MAX_NUMBERS_ORDERED) {
-			return "The cart is almost full!";
+			throw new LimitExceededException("ERROR: The number of media has reached its limit");
 		} else if (itemsOrdered.contains(media)){
 			return media.getTitle() + " is already in the cart!";
 		} else {

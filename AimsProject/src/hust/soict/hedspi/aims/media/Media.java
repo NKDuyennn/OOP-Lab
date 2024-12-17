@@ -3,6 +3,8 @@ package hust.soict.hedspi.aims.media;
 import java.time.Duration;
 import java.util.Comparator;
 
+import hust.soict.hedspi.aims.exception.PlayerException;
+
 public abstract class Media implements Comparable<Media>{
 	
     public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
@@ -64,8 +66,8 @@ public abstract class Media implements Comparable<Media>{
         System.out.println("Playing media");
     }
     
-    public String playGUI() {
-    	return "Playing media";
+    public String playGUI() throws PlayerException {
+        return "Playing media";
     }
     
     public String formatDuration(int durationInSeconds) {
@@ -78,10 +80,12 @@ public abstract class Media implements Comparable<Media>{
     	if (obj == this) {
     		return true;
     	}
-    	if (!(obj instanceof Media)) {
-    		return false;
-    	}
-    	return ((Media)obj).getTitle() == this.getTitle();
+    	if (obj == null || !(obj instanceof Media)) {
+            return false;
+        }
+    	Media otherMedia = (Media) obj;
+        return this.getTitle() != null && this.getTitle().equals(otherMedia.getTitle());
+
     }
     
     @Override
